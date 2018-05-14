@@ -1,8 +1,12 @@
 import React from 'react'
 
+import Auckland from './Auckland'
+
 const App = () => {
   return (
-    <h1>Leaflet development has begun!</h1>
+    <div className='page-section'>
+      <Auckland />
+    </div>
   )
 }
 
