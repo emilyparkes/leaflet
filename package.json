@@ -5,13 +5,14 @@
     "node": "8.11.1"
   },
   "description": "experimenting with leaflet",
-  "main": "index.js",
+  "main": "server/index.js",
   "repository": "https://github.com/emilyparkes/leaflet.git",
   "author": "Emily Parkes",
   "license": "MIT",
   "scripts": {
     "start": "webpack && node server",
-    "dev": "node server & webpack --watch",
+    "build": "webpack --config ./client/webpack.config.js",
+    "dev": "nodemon --watch server & yarn build --watch",
     "test": "jest --watchAll"
   },
   "babel": {
@@ -39,6 +40,7 @@
     "nodemon": "^1.11.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-router-dom": "^4.1.2",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1"
   }
