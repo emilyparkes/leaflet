@@ -4,7 +4,7 @@ import {shallow} from 'enzyme'
 import App from '../client/components/App'
 
 test('<App />', () => {
-  const expected = 'React development has begun!'
+  const expected = 'Leaflet is here!'
   const wrapper = shallow(<App />)
   expect(wrapper.text()).toBe(expected)
 })

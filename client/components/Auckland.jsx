@@ -3,31 +3,22 @@ import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
 
 
 class Auckland extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      lat: 51.505,
-      lng: -0.09,
-      zoom: 13
-    }
-  }
-
   render() {
-    const position = [this.state.lat, this.state.lng];
+    const position = [-36.8670921833, 174.7585096333]
+    const zoom = 15
+    const url = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}'
+    const attribution = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>'
+    const accessToken = 'pk.eyJ1IjoianVsaWEtbWFyZWlrZSIsImEiOiJjamdhY2VyNHoxMXFyMnlwam05dWphd3Y4In0.yAxAhojYaX8Q4Xcf-Qh2JQ'
+
     return (
-      <div className='leaflet'>
-        <Map center={this.state.position} zoom={this.state.zoom} onclick={this.getPosition} >
-          <TileLayer
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-          />
-          <Marker position={position}>
-            <Popup>
-              <span>A pretty CSS3 popup.<br />Easily customizable.</span>
-            </Popup>
-          </Marker>
-        </Map>
-      </div>
+      <Map center={position} zoom={zoom}>
+        <TileLayer
+          id={'mapbox.pencil'}
+          url={url}
+          attribution={attribution}
+          accessToken={accessToken}
+        />
+      </Map>
     )
   }
 }
