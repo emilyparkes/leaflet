@@ -15,11 +15,11 @@ class Auckland extends React.Component {
   render() {
     const position = [this.state.lat, this.state.lng];
     return (
-      <div className='leaflet-container'>
+      <div className='leaflet'>
         <Map center={this.state.position} zoom={this.state.zoom} onclick={this.getPosition} >
           <TileLayer
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+            url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
           />
           <Marker position={position}>
             <Popup>
