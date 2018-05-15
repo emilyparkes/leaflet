@@ -1,5 +1,6 @@
 import React from 'react'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
+import { OpenStreetMapProvider } from 'leaflet-geosearch'
 
 class Auckland extends React.Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class Auckland extends React.Component {
     }
   }
   render() {
-
+    const provider = new OpenStreetMapProvider()
     return (
       <Map center={this.state.position} zoom={this.state.zoom}>
         <TileLayer
