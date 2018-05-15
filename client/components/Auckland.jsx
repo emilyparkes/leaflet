@@ -9,7 +9,7 @@ class Auckland extends React.Component {
         -36.8670921833,
         174.7585096333
       ],
-      zoom: 13
+      zoom: 14
     }
   }
   render() {
@@ -23,7 +23,7 @@ class Auckland extends React.Component {
         <Marker position={this.state.position}>
           <Popup>
             <span>
-              A pretty CSS3 popup. <br /> Easily customizable.
+              Farmers Market <br /> 10am-4pm
             </span>
           </Popup>
         </Marker>
