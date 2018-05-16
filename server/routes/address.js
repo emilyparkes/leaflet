@@ -1,17 +1,15 @@
-// const express = require('express')
+const express = require('express')
 
-// const getCoords = require('../apiClient').getCoords
+const router = express.Router()
 
-// const router = express.Router()
+router.get('/', (req, res) => {
+  getCoords(req.query)
+    .then(response => {
+      res.send()
+    })
+    .catch(() => {
+      res.sendStatus(500)
+    })
+})
 
-// router.get('/', (req, res) => {
-//   getCoords(req.query)
-//     .then(response => {
-//       res.send(response.body.vectorQuery.layers[53382].features)
-//     })
-//     .catch(() => {
-//       res.sendStatus(500)
-//     })
-// })
-
-// module.exports = router
+module.exports = router
