@@ -6,40 +6,55 @@ class Auckland extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      position: [
+      center: [
+        -36.924106,
+        174.851160
+      ],
+      coords: [
         -36.8670921833,
         174.7585096333
       ],
-      position1: [
+      coords1: [
         -36.886042,
         175.004021
       ],
-      zoom: 10
+      zoom: 11
     }
   }
-  
+
   render() {
     const provider = new OpenStreetMapProvider()
+    const markers = this.state.hasLocation ? (
+      <Marker position={this.state.address.map(location => 
+        location.coord
+        )}>
+        <Popup>
+          <span>{location.eventname}</span>
+        </Popup>
+      </Marker>
+    ) : null
+
     return (
-      <Map center={this.state.position} zoom={this.state.zoom}>
+      <Map center={this.state.center} zoom={this.state.zoom}>
         <TileLayer
           attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
           url="https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZW1pbHljb2NvIiwiYSI6ImNqaDZ2bzRtYTAxaGEyeXA3NHV3em00c3YifQ.vPrXAwEUUzaJ27sV39ATqw"
         />
-        <Marker position={this.state.position}>
+        <Marker position={this.state.coords}>
           <Popup>
             <span>
               EDA <br /> 7am-10pm
             </span>
           </Popup>
         </Marker>
-        <Marker position={this.state.position1}>
+        <Marker position={this.state.coords1}>
           <Popup>
             <span>
               House <br /> Call on arrival
             </span>
           </Popup>
         </Marker>
+        {markers}
       </Map>
     )
   }

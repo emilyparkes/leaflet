@@ -7,30 +7,8 @@ class Form extends React.Component {
       address: '',
       submitted: false
     }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
-  
-
-  handleChange (evt) {
-    this.setState({
-      [evt.target.name]: evt.target.value
-    })
   }
 
-  handleSubmit (evt) {
-    evt.preventDefault()
-    request
-      .post(`${baseUrl}/api/v1/`)
-      .send({
-        address: this.state.address
-      })
-      .then(res => {
-        this.setState({
-          submitted: true
-        })
-      })
-  }
 
   render () {
     return (
